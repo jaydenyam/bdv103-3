@@ -5,9 +5,9 @@
   "main": "index.ts",
   "scripts": {
     "start-server": "tsx ./src/index.ts",
+    "lint": "eslint .",
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write .",
-    "lint": "eslint .",
     "type-check": "tsc --noEmit"
   },
   "keywords": [],
