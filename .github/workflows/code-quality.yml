@@ -1,6 +1,5 @@
 name: Code Quality
 
-# Triggers the workflow on push to main or when a pull request is opened against main
 on:
   push:
     branches:
@@ -11,32 +10,40 @@ on:
 
 jobs:
   code-quality:
-    name: Run Linter, Formatter, and Type Checker
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out the repository code
+      # Step 1: Check out the code
       - name: Check out code
         uses: actions/checkout@v3
 
-      # Step 2: Set up Node.js environment
+      # Step 2: Cache Node.js dependencies
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      # Step 3: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '18'  # Use your project's Node.js version
 
-      # Step 3: Install dependencies
+      # Step 4: Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Run the linter (ESLint)
+      # Step 5: Run the linter (ESLint)
       - name: Run ESLint
         run: npm run lint
 
-      # Step 5: Run Prettier formatting check
+      # Step 6: Run Prettier formatting check
       - name: Run Prettier
         run: npm run prettier:check
 
-      # Step 6: Run TypeScript type checker
+      # Step 7: Run TypeScript type checker
       - name: Run TypeScript
         run: npm run type-check
