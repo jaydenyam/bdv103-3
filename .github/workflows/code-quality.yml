@@ -1,6 +1,5 @@
 name: Code Quality
 
-# Triggers the workflow on push to main or when a pull request is opened against main
 on:
   push:
     branches:
@@ -15,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out the repository code
+      # Step 1: Check out the repository
       - name: Check out code
         uses: actions/checkout@v3
 
@@ -23,7 +22,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '18'  # Specify your project's Node.js version
 
       # Step 3: Install dependencies
       - name: Install dependencies
