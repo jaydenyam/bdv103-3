@@ -10,11 +10,10 @@ on:
 
 jobs:
   code-quality:
-    name: Run Linter, Formatter, and Type Checker
     runs-on: macos-latest
 
     steps:
-      # Step 1: Check out the repository
+      # Step 1: Check out the code
       - name: Check out code
         uses: actions/checkout@v3
 
@@ -24,18 +23,18 @@ jobs:
         with:
           node-version: '20'
 
-      # Step 3: Install dependencies
+      # Step 3: Install dependencies from package.json
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Run the linter (ESLint)
+      # Step 4: Run the lint script defined in package.json
       - name: Run ESLint
         run: npm run lint
 
-      # Step 5: Run Prettier formatting check
+      # Step 5: Run the Prettier check script defined in package.json
       - name: Run Prettier
         run: npm run prettier:check
 
-      # Step 6: Run TypeScript type checker
+      # Step 6: Run the TypeScript type check script defined in package.json
       - name: Run TypeScript
         run: npm run type-check
