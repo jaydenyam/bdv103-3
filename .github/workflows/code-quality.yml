@@ -10,27 +10,23 @@ on:
 
 jobs:
   code-quality:
+    name: Run Linter, Formatter, and Type Checker
     runs-on: macos-latest
 
     steps:
-      # Step 1: Check out the code
+      # Step 1: Check out the repository
       - name: Check out code
         uses: actions/checkout@v3
 
-      # Step 2: Cache Node.js dependencies
-      - name: Cache Node.js modules
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+      # Step 2: Debug: Show contents of package.json
+      - name: Show package.json
+        run: cat package.json
 
-      # Step 3: Set up Node.js
+      # Step 3: Set up Node.js environment
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'  # Use your project's Node.js version
+          node-version: '20' # Specify your project's Node.js version
 
       # Step 4: Install dependencies
       - name: Install dependencies
