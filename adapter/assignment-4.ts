@@ -40,8 +40,7 @@ async function lookupBookById(): Promise<Book> {
 export type ShelfId = string;
 export type OrderId = string;
 
-async function placeBooksOnShelf(
-): Promise<void> {
+async function placeBooksOnShelf(): Promise<void> {
   throw new Error('Todo');
 }
 
@@ -49,13 +48,13 @@ async function orderBooks(): Promise<{ orderId: OrderId }> {
   throw new Error('Todo');
 }
 
-async function findBookOnShelf(
-): Promise<Array<{ shelf: ShelfId; count: number }>> {
+async function findBookOnShelf(): Promise<
+  Array<{ shelf: ShelfId; count: number }>
+> {
   throw new Error('Todo');
 }
 
-async function fulfilOrder(
-): Promise<void> {
+async function fulfilOrder(): Promise<void> {
   throw new Error('Todo');
 }
 
