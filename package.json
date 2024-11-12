@@ -4,9 +4,10 @@
   "description": "This is a template repository for the first assignment in BVD 103 at McMaster Continuing Education.",
   "main": "index.ts",
   "scripts": {
-    "lint": "eslint .",
-    "prettier:check": "prettier --check .",
+    "lint": "eslint ./**/*.{js,ts}",
+    "fix-lint": "eslint --fix \"**/*.{js,ts}\"",
     "type-check": "tsc --noEmit",
+    "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write .",
     "start-server": "tsx ./src/index.ts"
   },
@@ -31,6 +32,8 @@
     "@types/koa": "~2.15.0",
     "@types/koa__cors": "~5.0.0",
     "@types/koa-qs": "~2.0.3",
+    "@typescript-eslint/eslint-plugin": "^8.14.0",
+    "@typescript-eslint/parser": "^8.14.0",
     "eslint": "^9.14.0",
     "globals": "^15.12.0",
     "prettier": "^3.3.3",
