@@ -4,8 +4,7 @@
   "description": "This is a template repository for the first assignment in BVD 103 at McMaster Continuing Education.",
   "main": "index.ts",
   "scripts": {
-    "lint": "eslint ./**/*.{js,ts}",
-    "fix-lint": "eslint --fix \"**/*.{js,ts}\"",
+    "lint": "eslint .",
     "type-check": "tsc --noEmit",
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write .",
